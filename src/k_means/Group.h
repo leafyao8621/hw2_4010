@@ -8,6 +8,5 @@ typedef struct Group {
 } Group;
 
 Group* new_Group(Centroid* centroid);
-double calc_dist_sq(Centroid* c, Entry* e);
-void reset_Group(Group* g);
-void free_Group(Group* g);
+int calc_dist_sq(Centroid* c, Entry* e, double* out);
+int free_Group(Group* g);

@@ -28,23 +28,39 @@ int add_Centroid(Centroid* c, double val) {
     }
 }
 
-double get_Centroid(Centroid* c, int i) {
+int get_Centroid(Centroid* c, int i, double* a) {
     if (i > -1 && i < c->dim) {
-        return c->vals[i];
+        *a = c->vals[i];
+        return 0;
     } else {
         puts("Index out of bound");
+        return 1;
+    }
+}
+
+int print_Centroid(Centroid* c) {
+    if (c != NULL) {
+        for (int i = 0; i < c->dim - 1; i++) {
+            printf("%lf ", c->vals[i]);
+        }
+        printf("%lf\n", c->vals[c->dim - 1]);
         return 0;
+    } else {
+        return 1;
     }
 }
 
-void print_Centroid(Centroid* c) {
-    for (int i = 0; i < c->dim - 1; i++) {
-        printf("%lf ", c->vals[i]);
+int free_Centroid(Centroid* c) {
+    if (c != NULL) {
+        if (c->vals != NULL) {
+            free(c->vals);
+            free(c);
+            return 0;
+        } else {
+            free(c);
+            return 1;
+        }
+    } else {
+        return 1;
     }
-    printf("%lf\n", c->vals[c->dim - 1]);
-}
-
-void free_Centroid(Centroid* c) {
-    free(c->vals);
-    free(c);
 }

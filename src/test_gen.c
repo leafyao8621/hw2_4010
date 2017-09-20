@@ -9,9 +9,9 @@ int main(int argc, char** argv) {
     printf("%d %d\n", a, b);
     for (int i = 0; i < a; i++) {
         for (int j = 0; j < b - 1; j++) {
-            printf("%lf ", ((double)rand()/RAND_MAX) * a);
+            printf("%.lf ", ((double)rand()/RAND_MAX) * a);
         }
-        printf("%lf\n", ((double)rand()/RAND_MAX) * a);
+        printf("%.lf\n", ((double)rand()/RAND_MAX) * a);
     }
     return 0;
 }
